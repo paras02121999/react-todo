@@ -5,27 +5,6 @@ import Todos from '../components/Todos';
 import '../styles/App.css';
 
 const App = () => {
-  const [data, setData] = useState([
-    {
-      name: "Paras Mehta",
-      tech: "React.js"
-    },
-    {
-      name: "Raj Patel",
-      tech: "ASP.net"
-    },
-    {
-      name: "Amit Shah",
-      tech: "Python"
-    }
-  ])
-
-  const onDelete = (todo) => {
-    setData(data.filter((e) => {
-      return e !== todo;
-    }))
-  }
-
   const add = (name, tech) => {
     const myTodo = {
       name: name,
@@ -33,6 +12,25 @@ const App = () => {
     }
     setData([...data, myTodo])
   }
+
+  let init;
+  if (localStorage.getItem("data") === null) {
+    init = [];
+  }
+  else {
+    init = JSON.parse(localStorage.getItem("data"))
+  }
+  const onDelete = (todo) => {
+    setData(data.filter((e) => {
+      return e !== todo;
+    }))
+  }
+
+  const [data, setData] = useState(init)
+
+  React.useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data))
+  }, [data])
 
   return (<>
     <Layout>

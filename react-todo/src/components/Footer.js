@@ -18,7 +18,7 @@ const Footer = () => {
     const classes = useStyles();
     return (
         <div className={classes.footerBar} >
-            <p>Copyright © 2022 Paras. All rights reserved.</p>
+            <p>Copyright © 2021 Paras. All rights reserved.</p>
         </div>
     );
 };
