@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 export const TodoItems = ({ data, onDelete }) => {
     return <>
-        <p>{data.name} - {data.tech} <Button variant="text" size="small" onClick={() => { onDelete(data) }}><DeleteIcon /></Button></p>
+        <p>Name: {data.name} - Technology: {data.tech} <Button variant="text" size="small" onClick={() => { onDelete(data) }}><DeleteIcon /></Button></p>
 
     </>;
 };
